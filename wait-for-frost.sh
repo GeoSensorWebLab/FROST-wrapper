@@ -9,6 +9,8 @@ while [ $RET -ne 0 ]; do
         sleep 1
 done
 
+sleep 5
+
 PGPASSWORD="$POSTGRES_PASSWORD" psql -h "database" -p "5432" \
 	-U $POSTGRES_USER $POSTGRES_DB \
 	-c 'ALTER TABLE public."OBSERVATIONS" ADD CONSTRAINT OBSERVATIONS_UNIQUE UNIQUE ("DATASTREAM_ID", "RESULT_TIME");'
