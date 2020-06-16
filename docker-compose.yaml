@@ -38,6 +38,7 @@ services:
       - 1883:1883
     depends_on:
       - database
+    restart: unless-stopped
 
   database:
     image: postgis/postgis:11-2.5-alpine
@@ -49,6 +50,7 @@ services:
       - frost
     volumes:
       - postgis_volume:/var/lib/postgresql/data
+    restart: unless-stopped
 
 networks:
   frost:
